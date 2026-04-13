@@ -83,13 +83,28 @@ function renderPayouts(data) {
     const sectionEl = document.createElement("div");
     sectionEl.className = "payout-section";
 
+    if (section.banner_message) {
+      sectionEl.innerHTML = `
+        <div class="masters-banner-wrap">
+          <div class="masters-banner">
+            <div class="masters-banner-inner">
+              <div class="masters-banner-title">${section.title ?? "Payouts"}</div>
+              <div class="masters-banner-message">${section.banner_message}</div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(sectionEl);
+      return;
+    }
+
     let itemsHtml = "";
 
     if (!section.items || section.items.length === 0) {
       itemsHtml = `<p class="payout-empty">No payouts entered yet.</p>`;
     } else {
       itemsHtml = section.items.map(item => {
-        const winnersHtml = item.winners.map(winner => `
+        const winnersHtml = (item.winners || []).map(winner => `
           <div class="payout-winner">
             <span>${winner.name}</span>
             <strong>${formatMoney(winner.amount)}</strong>
@@ -169,6 +184,8 @@ function renderTeams(teams) {
 
 function renderScores(scores) {
   const tbody = document.querySelector("#scores-table tbody");
+  if (!tbody) return;
+
   tbody.innerHTML = "";
 
   scores.forEach(score => {
@@ -185,8 +202,9 @@ function renderScores(scores) {
 }
 
 function updateTimestamp(meta) {
-  document.getElementById("updated").textContent =
-    formatLastUpdated(meta.last_updated);
+  const updatedEl = document.getElementById("updated");
+  if (!updatedEl || !meta?.last_updated) return;
+  updatedEl.textContent = formatLastUpdated(meta.last_updated);
 }
 
 async function main() {
@@ -207,6 +225,8 @@ async function main() {
 
 main().catch(error => {
   console.error(error);
-  document.getElementById("updated").textContent =
-    "Could not load updated data.";
+  const updatedEl = document.getElementById("updated");
+  if (updatedEl) {
+    updatedEl.textContent = "Could not load updated data.";
+  }
 });
