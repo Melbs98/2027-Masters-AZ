@@ -2,14 +2,7 @@
   "sections": [
     {
       "title": "Payouts",
-      "items": [
-        {
-          "label": "",
-          "winners": [
-            { "name": "Wait for 2027, losers", "amount": "" }
-          ]
-        }
-      ]
+      "banner_message": "Wait for 2027, losers"
     }
   ]
 }
