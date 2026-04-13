@@ -1,0 +1,246 @@
+:root {
+  --augusta-green: #1f5c3a;
+  --augusta-green-dark: #173f29;
+  --augusta-green-deep: #12321f;
+  --masters-gold: #f2c94c;
+  --cream: #f8f3e8;
+  --parchment: #f3ecdf;
+  --sand: #ece2cf;
+  --border: #cdbfa3;
+  --text: #1f1f1f;
+  --muted: #5c6558;
+  --under: #14733a;
+  --over: #bc2f2f;
+  --cut: #6d6d6d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(rgba(20, 34, 18, 0.25), rgba(20, 34, 18, 0.35)),
+    url("https://melbs98.github.io/2026-Masters-AZ/Augusta-background.jpg") center center / cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.page-header {
+  background: rgba(255, 248, 234, 0.95);
+  border-radius: 30px;
+  padding: 25px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.page-header h1 {
+  font-family: Georgia, serif;
+  color: var(--augusta-green);
+  font-size: 3rem;
+  line-height: 1.05;
+  margin: 0 0 10px 0;
+  word-break: break-word;
+}
+
+#updated {
+  margin: 0;
+  color: var(--muted);
+}
+
+.section-card {
+  background:
+    linear-gradient(rgba(255, 252, 245, 0.85), rgba(246, 239, 226, 0.9)),
+    url("https://melbs98.github.io/2026-Masters-AZ/Augusta-background.jpg") center center / cover no-repeat;
+  border-radius: 28px;
+  padding: 20px;
+  margin-top: 25px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.section-card h2 {
+  font-family: Georgia, serif;
+  color: var(--augusta-green);
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 18px;
+  word-break: break-word;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.team-card {
+  min-width: 0;
+  background:
+    linear-gradient(rgba(248, 243, 232, 0.78), rgba(243, 236, 223, 0.82)),
+    url("https://melbs98.github.io/2026-Masters-AZ/Augusta-background.jpg") center center / cover no-repeat;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.team-card-header {
+  background: linear-gradient(#285f3d, #1c4b2f);
+  color: white;
+  padding: 10px 12px;
+}
+
+.team-rank {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.team-name {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.team-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.team-table th,
+.team-table td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  font-size: 13px;
+}
+
+.team-table thead {
+  background: var(--sand);
+}
+
+.team-table th:first-child,
+.team-table td:first-child {
+  width: auto;
+}
+
+.team-table th:last-child,
+.team-table td:last-child {
+  width: 72px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.team-table tbody tr:nth-child(even) {
+  background: rgba(243, 236, 223, 0.6);
+}
+
+.player-name {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.score-under { color: var(--under); font-weight: bold; }
+.score-over { color: var(--over); font-weight: bold; }
+.score-even { color: black; font-weight: bold; }
+.score-cut { color: var(--cut); font-weight: bold; }
+
+#scores-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#scores-table th,
+#scores-table td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  font-size: 13px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .teams-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .teams-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-header h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 12px;
+  }
+
+  .page-header {
+    border-radius: 20px;
+    padding: 18px;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .section-card {
+    border-radius: 20px;
+    padding: 14px;
+    margin-top: 16px;
+  }
+
+  .section-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+  }
+
+  .teams-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .team-card {
+    width: 100%;
+  }
+
+  .team-name {
+    font-size: 17px;
+  }
+
+  .team-table th,
+  .team-table td {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
+
+  .team-table th:last-child,
+  .team-table td:last-child {
+    width: 64px;
+  }
+}
