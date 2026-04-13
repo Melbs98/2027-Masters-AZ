@@ -54,13 +54,11 @@ function renderPayouts(data) {
 
   const firstSection = data?.sections?.[0];
   const message = firstSection?.banner_message ?? "Wait for 2027, losers";
-  const title = firstSection?.title ?? "Payouts";
 
   container.innerHTML = `
     <div class="masters-banner-wrap">
       <div class="masters-banner">
         <div class="masters-banner-inner">
-          <div class="masters-banner-title">${title}</div>
           <div class="masters-banner-message">${message}</div>
         </div>
       </div>
@@ -87,11 +85,8 @@ function getCountdownText(targetDate) {
 }
 
 function insertOrUpdateCountdown() {
-  const payoutsList = document.getElementById("payouts-list");
-  if (!payoutsList) return;
-
-  const payoutsSection = payoutsList.closest(".section-card");
-  if (!payoutsSection) return;
+  const pageHeader = document.querySelector(".page-header");
+  if (!pageHeader) return;
 
   let countdownCard = document.getElementById("countdown-section");
 
@@ -108,15 +103,29 @@ function insertOrUpdateCountdown() {
       </div>
     `;
 
-    payoutsSection.insertAdjacentElement("afterend", countdownCard);
+    pageHeader.insertAdjacentElement("afterend", countdownCard);
   }
 
   const countdownEl = document.getElementById("countdown-time");
   if (!countdownEl) return;
 
-  // April 7, 2027 at 7:00 PM PT = April 8, 2027 02:00:00 UTC
   const targetDate = new Date("2027-04-08T02:00:00Z");
   countdownEl.textContent = getCountdownText(targetDate);
+}
+
+function movePayoutsBelowGif() {
+  const payoutsSection = document.getElementById("payouts-list")?.closest(".section-card");
+  if (!payoutsSection) return;
+
+  const gifImage = document.querySelector('img[alt="Celebration GIF"], img[alt="Masters Image"], img');
+  if (!gifImage) return;
+
+  const gifBlock = gifImage.closest("div");
+  if (!gifBlock) return;
+
+  if (gifBlock.nextElementSibling !== payoutsSection) {
+    gifBlock.insertAdjacentElement("afterend", payoutsSection);
+  }
 }
 
 function hideOffseasonSections() {
@@ -145,6 +154,8 @@ async function main() {
   updateTimestamp(meta);
   insertOrUpdateCountdown();
   hideOffseasonSections();
+
+  setTimeout(movePayoutsBelowGif, 50);
 
   setInterval(() => updateTimestamp(meta), 30000);
   setInterval(insertOrUpdateCountdown, 60000);
