@@ -1,85 +1,12 @@
 {
   "sections": [
     {
-      "title": "Day 1",
+      "title": "Payouts",
       "items": [
         {
-          "label": "Leader",
+          "label": "",
           "winners": [
-            { "name": "Roth", "amount": 37.5 },
-            { "name": "Melbyes", "amount": 37.5 }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Day 2",
-      "items": [
-        {
-          "label": "Leader",
-          "winners": [
-            { "name": "Roth", "amount": 75 }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Day 3",
-      "items": [
-        {
-          "label": "Leader",
-          "winners": [
-            { "name": "Roth", "amount": 37.5 },
-            { "name": "Adam & Kevin", "amount": 37.5 }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Final",
-      "items": [
-        {
-          "label": "1st Overall",
-          "winners": [
-            { "name": "Roth", "amount": 300 }
-          ]
-        },
-        {
-          "label": "2nd Overall",
-          "winners": [
-            { "name": "Ross", "amount": 150 }
-          ]
-        },
-        {
-          "label": "3rd Overall",
-          "winners": [
-            { "name": "Coulter", "amount": 18.75 },
-            { "name": "Klooster", "amount": 18.75 },
-            { "name": "Bryan", "amount": 18.75 },
-            { "name": "Adam & Kevin", "amount": 18.75 }
-          ]
-        },
-        {
-          "label": "3-Man Team",
-          "winners": [
-            { "name": "Coulter", "amount": 250 }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Totals",
-      "items": [
-        {
-          "label": "Total Winnings",
-          "winners": [
-            { "name": "Roth", "amount": 450 },
-            { "name": "Coulter", "amount": 275 },
-            { "name": "Ross", "amount": 150 },
-            { "name": "Adam & Kevin", "amount": 56.25 },
-            { "name": "Melbyes", "amount": 37.5 },
-            { "name": "Klooster", "amount": 18.75 },
-            { "name": "Bryan", "amount": 18.75 }
+            { "name": "Wait for 2027, losers", "amount": "" }
           ]
         }
       ]
