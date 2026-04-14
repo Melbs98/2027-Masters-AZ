@@ -109,7 +109,7 @@ def fetch_scores():
                     rows.append(row)
 
     if not rows:
-        raise RuntimeError("No golfers returned from ESPN API. Skipping score update")
+        print("No golfers returned from ESPN API. Skipping score update.")
         return []
 
     def sort_key(row):
