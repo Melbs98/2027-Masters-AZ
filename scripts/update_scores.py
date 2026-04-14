@@ -125,7 +125,7 @@ def fetch_scores():
     rows.sort(key=sort_key)
     return rows
 
- update_excel(scores):
+def update_excel(scores):
     wb = load_workbook(WORKBOOK_PATH)
     ws = wb["Scores"]
 
@@ -150,9 +150,9 @@ def fetch_scores():
 def main():
     scores = fetch_scores()
     if not scores:
-        print("No score data available. Leaving workbook unchanged."
+        print("No score data available. Leaving workbook unchanged.")
         return
-        
+
     update_excel(scores)
     print(f"Updated workbook with {len(scores)} golfers.")
 
